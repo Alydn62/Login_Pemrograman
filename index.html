@@ -1,38 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>    
-    <div class="container">
-        
-        <div class="screen">
-            <div class="screen__content">
-                
-                <form class="login">
-                    <h1>Login</h1>
-                    <div class="login__field">
-                        <i class="login__icon fas fa-user"></i>
-                        <input type="email" class="login__input" placeholder="Email" required>
-                    </div>
-                    <div class="login__field">
-                        <i class="login__icon fas fa-lock"></i>
-                        <input type="password" class="login__input" placeholder="Password" required>
-                    </div>
-                    <button class="button login__submit">
-                        <span class="button__text">LogIn</span>
-                        <i class="button__icon fas fa-chevron-right"></i>
-                    </button>				
-                </form>
-        
-            </div>
-            <div class="screen__background">
-                <span class="screen__background__shape screen__background__shape4"></span>
-                <span class="screen__background__shape screen__background__shape3"></span>		
-                <span class="screen__background__shape screen__background__shape2"></span>
-                <span class="screen__background__shape screen__background__shape1"></span>
-            </div>		
+<body>
+    <div class="wrapper">
+        <!-- Radio Buttons -->
+        <input type="radio" id="login" name="toggle" checked>
+        <div class="container">
+            <h2>Login</h2>
+            <form action="#">
+                <input type="text" name="username" placeholder="Enter your username" required>
+                <input type="password" name="password" placeholder="Enter your password" required>
+                <button type="submit">Sign In</button>
+            </form>
+            <label for="register" class="toggle-label">Don't have an account? Register here</label>
+        </div>
+
+        <input type="radio" id="register" name="toggle">
+        <div class="container">
+            <h2>Register</h2>
+            <form action="#">
+                <input type="text" name="username" placeholder="Enter your username" required>
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <input type="password" name="password" placeholder="Enter your password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm your password" required>
+                <button type="submit">Register</button>
+            </form>
+            <label for="login" class="toggle-label">Already have an account? Login here</label>
         </div>
     </div>
 </body>
