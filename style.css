@@ -1,150 +1,113 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;	
-	font-family: Raleway, sans-serif;
-}
-
-html, body {
-	height: 100%; /* Pastikan body dan html memiliki tinggi penuh */
-	overflow: hidden; /* Nonaktifkan scrolling */
-}
-
 body {
-	background: linear-gradient(90deg, #FFA500, #FF6F32); /* Gradasi warna orange */
+    background: linear-gradient(to right, rgba(0, 98, 185, 0.8), rgba(0, 98, 185, 0.8)), 
+                url('/mnt/data/common-bg.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+input[type="radio"] {
+    display: none;
 }
 
 .container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
+    background-color: #ffffff;
+    padding: 25px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: -1;
 }
 
-.screen {		
-	background: linear-gradient(90deg, #FF7F50, #FF6347); /* Gradasi orange gelap dan terang */
-	position: relative;	
-	height: 600px;
-	width: 360px;	
-	box-shadow: 0px 0px 24px #FF5733; /* Warna shadow orange */
+input[type="radio"]:checked + .container {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 1;
 }
 
-.screen__content {
-	z-index: 1;
-	position: relative;	
-	height: 100%;
+.container::before {
+    content: '';
+    display: block;
+    height: 6px;
+    background: linear-gradient(to right, #4caf50, #9c27b0, #2196f3, #f44336, #ffeb3b);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
-.screen__background {		
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 0;
-	-webkit-clip-path: inset(0 0 0 0);
-	clip-path: inset(0 0 0 0);	
+h2 {
+    margin: 20px 0 15px;
+    font-size: 26px;
+    color: #333333;
+    font-weight: bold;
 }
 
-.screen__background__shape {
-	transform: rotate(45deg);
-	position: absolute;
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-.screen__background__shape1 {
-	height: 520px;
-	width: 520px;
-	background: #FFDAB9; /* Warna orange muda */
-	top: -50px;
-	right: 120px;	
-	border-radius: 0 72px 0 0;
+form input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
-.screen__background__shape2 {
-	height: 220px;
-	width: 220px;
-	background: #FF8C00; /* Orange gelap */
-	top: -172px;
-	right: 0;	
-	border-radius: 32px;
+form input:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
-.screen__background__shape3 {
-	height: 540px;
-	width: 190px;
-	background: linear-gradient(270deg, #FF7F50, #FF6347); /* Gradasi orange */
-	top: -24px;
-	right: 0;	
-	border-radius: 32px;
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f44336;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.screen__background__shape4 {
-	height: 400px;
-	width: 200px;
-	background: #FF4500; /* Orange lebih gelap */
-	top: 420px;
-	right: 50px;	
-	border-radius: 60px;
+form button:hover {
+    background-color: #e53935;
 }
 
-.login {
-	width: 320px;
-	padding: 30px;
-	padding-top: 156px;
+.toggle-label {
+    display: block;
+    margin-top: 15px;
+    color: #2196f3;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
 }
 
-.login__field {
-	padding: 20px 0px;	
-	position: relative;	
-}
-
-.login__icon {
-	position: absolute;
-	top: 30px;
-	color: #FF8C00; /* Warna icon orange */
-}
-
-.login__input {
-	border: none;
-	border-bottom: 2px solid #FFB84D; /* Orange muda untuk border */
-	background: none;
-	padding: 10px;
-	padding-left: 24px;
-	font-weight: 700;
-	width: 75%;
-	transition: .2s;
-}
-
-.login__input:active,
-.login__input:focus,
-.login__input:hover {
-	outline: none;
-	border-bottom-color: #FF6347; /* Warna orange gelap */
-}
-
-.login__submit {
-	background: #fff;
-	font-size: 14px;
-	margin-top: 30px;
-	padding: 16px 20px;
-	border-radius: 26px;
-	border: 1px solid #FFB84D; /* Border orange muda */
-	text-transform: uppercase;
-	font-weight: 700;
-	display: flex;
-	align-items: center;
-	width: 33%;
-	color: #FF5733; /* Teks button orange gelap */
-	box-shadow: 0px 2px 2px #FF5733; /* Shadow warna orange gelap */
-	cursor: pointer;
-	transition: .2s;
-}
-
-.login__submit:active,
-.login__submit:focus,
-.login__submit:hover {
-	border-color: #FF6347; /* Warna hover border menjadi orange gelap */
-	outline: none;
+.toggle-label:hover {
+    text-decoration: underline;
 }
